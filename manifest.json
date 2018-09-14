@@ -8,7 +8,7 @@
             "48": "icons/icon48.png",
             "128": "icons/icon128.png"},
   "content_scripts": [{
-    "js" : ["src/jquery.js", "src/content.js"],
+    "js" : ["src/jquery.js", "src/script.js"],
     "matches": ["https://crowdin.com/translate/*"]
   }]
 }
