@@ -5,10 +5,10 @@
   "version": "0.1.0",
   "description": "Browser Extension that alters the CSS of crowdin's editor page to be easier on your eyes.",
   "icons": { "16": "icons/icon16.png",
-           	 "48": "icons/icon48.png",
-          	 "128": "icons/icon128.png"},
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"},
   "content_scripts": [{
-  	"js" : ["src/jquery.js", "src/content.js"],
+    "js" : ["src/jquery.js", "src/content.js"],
     "matches": ["https://crowdin.com/translate/*"]
   }]
 }
