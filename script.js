@@ -21,16 +21,22 @@ for(var i = 0; i < htmlObjects.length; i++){
 }
 
 $(document).ready(function(){
-   var iframe = $("iframe#html_frame"); //Finding crowdin's translation iframe.
+   setTimeout(function(){
+      var iframe = $("iframe#html_frame"); //Finding crowdin's translation iframe.
 
-   $(iframe).ready(function(){
+      console.log("All resources finished loading!");
       var frameHead = $(iframe).contents().find("head");
       var frameBody = $(iframe).contents().find("body");
       if($(frameBody).hasClass("dark-theme")){ // Check if the Dark Theme is enabled in crowdin settings.
-         frameHead.append('<style>'+ htmlString + '</style>'); //Setting the CSS to the htmlString.
+            frameHead.append('<style>'+ htmlString + '</style>'); //Setting the CSS to the htmlString.
       }
       else{
          console.log("'Better Crowdin Darkmode:' Enable Dark Theme and refresh the page for the extension to take effect.");
-      }
-   })
+      } 
+   }, 5000) // NECESSARY 4s (adjustable) DELAY IN FIREFOX BECAUSE THE BROWSER FIRES IFRAME LOAD CHECKS TOO EARLY NO MATTER WHAT.
 });
+
+
+
+
+

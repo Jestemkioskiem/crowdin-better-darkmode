@@ -1,14 +1,21 @@
 {
   "manifest_version": 2,
  
-  "name": "Better Crowdin Darkmode",
-  "version": "0.1.0",
+  "name": "BetterCrowdinDarkmode",
+
+  "version": "1.0.1",
+
   "description": "Browser Extension that alters the CSS of crowdin's editor page to be easier on your eyes.",
-  "icons": { "16": "icons/icon16.png",
-            "48": "icons/icon48.png",
-            "128": "icons/icon128.png"},
+
+  "icons": {
+  	"16" : "icons/icon16.png",
+  	"48": "icons/icon48.png",
+  	"128": "icons/icon128.png"
+  },
+
   "content_scripts": [{
-    "js" : ["src/jquery.js", "src/script.js"],
-    "matches": ["https://crowdin.com/translate/*"]
+  	"run_at" : "document_idle",
+    "js" : ["src/jquery.js", "script.js"],
+    "matches": ["*://crowdin.com/translate/*"]
   }]
 }
