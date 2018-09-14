@@ -9,3 +9,6 @@ You can find the addon in the [chrome app store](https://chrome.google.com/webst
 - Navigate to chrome://extensions/.
 - Enable *Developer Mode* in top right.
 - Drag and drop the entire crowdin-better-darkmode folder onto the page.
+
+## If all else fails
+If the addon failed to load, reload the page after enabling darkmode on Crowdin.
