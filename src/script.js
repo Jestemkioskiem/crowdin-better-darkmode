@@ -1,5 +1,5 @@
 
-/*  All of the <style> elements, since you can't access your local .css file with an extension.
+/*  All of the <style> elements, since you can't access your local .css file with your extension's content script.
 It's an array for clarity & easier edits.*/
 htmlObjects = [
 ".dark-theme.md .crowdin_phrase_translated, .dark-theme.md .crowdin_phrase_translated em\
