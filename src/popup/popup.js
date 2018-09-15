@@ -1,6 +1,7 @@
-var open = false; //Global variable that determines if the GUI is collapsed or not.
+let open = false; //Global variable that determines if the GUI is collapsed or not.
+let currColorType;
 
-let defaultColors = { // Default HEX colors.
+let hexColors = { // Default HEX colors.
       text : "#001A1A",
       translated : "#58805A",
       untranslated : "#954544",
@@ -24,45 +25,69 @@ $('#top_bar').click(function(){ // Opens up and collapses the GUI when it's clic
 });
 
 $('#submitHex').click(function(){ // Sends information to script.js to update the colors.
-	notifyContent('colorUpdate');
+	notifyContent('colorUpdate', hexColors);
 });
 
 $('#resetHex').click(function(){ // Resets the HEX value to default.
 	setToDefault();
 });
 
+$('#colorChoices button').click(function(){ // Resets the HEX value to default.
+	openColorPicker(this)
+});
 
-function notifyContent(messageText){ // Function for sending colors and other messages to script.js.
+$('#saveColor').click(function(){
+	updateColor(currColorType)
+	closeColorPicker()
+})
+
+function updateColor(colorType){
+	let hexVal = $('#hexValue').val()
+	if(colorType === "Text"){
+		hexColors.text = hexVal
+	}
+	else if(colorType === "Translated"){
+		hexColors.translated = hexVal
+	}
+	else if(colorType === "Untranslated"){
+		hexColors.untranslated = hexVal
+	}
+	else if(colorType === "Approved"){
+		hexColors.approved = hexVal
+	}
+}
+
+function notifyContent(messageText, colors){ // Function for sending colors and other messages to script.js.
 	let params = {
 		active: true,
 		currentWindow: true
 	}
 	chrome.tabs.query(params, tabReceived);
 	function tabReceived(tabs) {
-	
 		let msg = {
 		  txt: messageText,
-		  colors: newColors()
+		  colors: colors
 		}
 
 		chrome.tabs.sendMessage(tabs[0].id, msg)
 	}
 };
 
-function newColors(){ // Uses the color picker to determine new colors - only works with `text` for now.
-	let colors = {
-		text : $('#hexValue').val(),
-		untranslated: "#954544", //Placeholder values
-		translated : "#58805A", 
-	    approved : "#456C33",
-	    special : "#525252",
-	    special_text : "#101010"
+function openGUI(){ // Animations & CSS for opening up the GUI.
+	let params = {
+		active: true,
+		currentWindow: true
+	}
+	
+	chrome.tabs.query(params, tabReceived);
+	function tabReceived(tabs) {
+
+		let tab = tabs[0]
+		if(!tab.url.startsWith('https://crowdin.com/')){
+			return false;
+		}
 	}
 
-	return colors
-};
-
-function openGUI(){ // Animations & CSS for opening up the GUI.
 	$('body').animate({
 		'height': "300px"
 	}, 500, function(){
@@ -101,6 +126,31 @@ function closeGUI(){ // Animations & CSS for collapsing the GUI.
 	return false;
 };
 
+function openColorPicker(button){
+	currColorType = button.textContent;
+
+	$('#colorType').text(currColorType)
+	$('#colorClosed').hide()
+	$('#colorOpened').show()
+}
+
+function closeColorPicker(){
+	currColorType = null;
+
+	$('#colorClosed').show()
+	$('#colorOpened').hide()
+}
+
 function setToDefault(){ // Called when #resetHex is clicked.
-   $.farbtastic('#colorpicker').setColor('#001A1A')
+   $.farbtastic('#colorpicker').setColor('#001A1A');
+   let defaultColors = { // Default HEX colors.
+      text : "#001A1A",
+      translated : "#58805A",
+      untranslated : "#954544",
+      approved : "#456C33",
+      special : "#525252",
+      special_text : "#101010"
+	};
+
+	notifyContent('colorUpdate', defaultColors);
 };

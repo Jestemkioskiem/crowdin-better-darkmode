@@ -15,10 +15,23 @@
 	</div>
 
 	<div id='opened'>
-		<div id="colorpicker"></div>
-		<form><input id='hexValue' name="color" value="#001A1A"/></form>
-		<button id='submitHex'>Update Colors</button>
-		<button id='resetHex'>Set to Default</button>
+		<div id='colorOpened'>
+			<h2 id='colorType'></h2>
+			<div id="colorpicker"></div>
+			<form><input id='hexValue' name="color" value="#001A1A"/></form>
+			<button id='saveColor'>Save</button>
+		</div>
+		<div id='colorClosed'>
+			<div id='colorChoices'>
+				<h2 id="choicesTitle">Pick your colors!</h2>
+				<button id='textBtn'>Text</button>
+				<button id='translatedBtn'>Translated</button>
+				<button id='untranslatedBtn'>Untranslated</button>
+				<button id='approved'>Approved</button>
+			</div>
+			<button id='submitHex'>Update Colors</button>
+			<button id='resetHex'>Set to Default</button>
+		</div>
 	</div>
 
 	<script src="../third_party/jquery.js"></script>

@@ -9,8 +9,15 @@ p {
 	margin: 10px;
 }
 
+button { 
+	background: rgba(107, 107, 107, 0.5);
+	height: 40px;
+	width: 130px;
+}
+
+
 #top_bar{
-	opacity: 0.5;
+	opacity: 0.8;
 	border-bottom: 0px solid rgba(107, 107, 107, 0.5);
 }
 
@@ -37,8 +44,6 @@ p {
 }
 
 #opened button{
-	height: 40px;
-	width: 130px;
 	margin: 10px 0px 10px 10px;
 }
 
@@ -47,8 +52,30 @@ p {
 }
 
 #hexValue {
-	margin-left: 75px;
+	margin-left: 85px;
 	height:30px;
-	width: 150px;
+	width: 130px;
+	text-align: center;
+}
+
+#colorOpened {
+	display: none;
+}
+
+#colorChoices {
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border-bottom: 0.5px solid rgba(107, 107, 107, 0.5);
+}
+
+#saveColor {
+	margin-left: 85px !important;
+}
+
+#colorType {
+	text-align: center;
+}
+
+#choicesTitle {
 	text-align: center;
 }

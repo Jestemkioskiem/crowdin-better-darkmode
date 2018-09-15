@@ -22,7 +22,6 @@ function unpackColors(message, sender, sendResponse){
 }
 
 function updateHtmlString(colors){ // Returns the htmlString with new colors.
-
    htmlObjects = [
       '.dark-theme.md .crowdin_phrase_translated, .dark-theme.md .crowdin_phrase_translated em\
          {color: $c !important; background: $b !important;} '.replace('$b', colors.translated),
