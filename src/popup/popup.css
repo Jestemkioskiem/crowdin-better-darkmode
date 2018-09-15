@@ -1,0 +1,54 @@
+body{
+	width: 300px;
+	height: 80px;
+	font-size: 20px;
+	padding: 7px;
+}
+
+p {
+	margin: 10px;
+}
+
+#top_bar{
+	opacity: 0.5;
+	border-bottom: 0px solid rgba(107, 107, 107, 0.5);
+}
+
+#logo {
+	margin: 16px 0px 0px 10px;
+	float: left;
+	display: inline;
+}
+
+#title{
+	margin: 11px 0px 0px 10px;
+	display: inline-block;
+}
+
+#dev{
+	float: right;
+	font-size: 0.6em;
+	margin: 4px 0px 10px 0px;
+}
+
+#opened{
+	display: none;
+	opacity: 0;
+}
+
+#opened button{
+	height: 40px;
+	width: 130px;
+	margin: 10px 0px 10px 10px;
+}
+
+#colorpicker{
+	margin: 0px 0px 10px 50px;
+}
+
+#hexValue {
+	margin-left: 75px;
+	height:30px;
+	width: 150px;
+	text-align: center;
+}
