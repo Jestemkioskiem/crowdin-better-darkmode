@@ -2,11 +2,10 @@
   "manifest_version": 2,
  
   "name": "Better Crowdin Darkmode",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Browser Extension that alters the CSS of crowdin's editor page to be easier on your eyes.",
 
   "permissions": [
-    "storage",
     "tabs"
   ],
 
