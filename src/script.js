@@ -8,6 +8,7 @@ let defaultColors = { // Set the default HEX colors for all the elements.
       approved : "#456C33",
       special : "#525252",
       special_text : "#101010"
+}
 
 $(document).ready(function(){ // Update the CSS when the document & iframe fully load.
    $(iframe.ready(function(){
