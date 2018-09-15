@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Better Crowdin Darkmode</title>
+	<link rel="stylesheet" href="popup.css"/>
+	<link rel="stylesheet" href="../third_party/bootstrap.css"/>
+	<link rel="stylesheet" href="../third_party/farbtastic.css"/>
+</head>
+
+<body>
+	<div id='top_bar'>
+		<img id='logo' src="../icons/icon48.png"></img>
+		<p id='title'>Better Crowdin<br> Darkmode</p><br>
+		<p id='dev'>by Jestemkioskiem</p>
+	</div>
+
+	<div id='opened'>
+		<div id="colorpicker"></div>
+		<form><input id='hexValue' name="color" value="#001A1A"/></form>
+		<button id='submitHex'>Update Colors</button>
+		<button id='resetHex'>Set to Default</button>
+	</div>
+
+	<script src="../third_party/jquery.js"></script>
+	<script src="../third_party/farbtastic.js"></script>
+
+	<script src="popup.js"></script>
+
+</body>
+</html>
